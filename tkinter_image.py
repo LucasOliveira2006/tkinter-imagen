@@ -1,13 +1,28 @@
 from tkinter import *
 from PIL import ImageTk, Image
+import os 
 
 root = Tk()
+#Lista os arquivos da pasta imagens
+arquivos = os.listdir("imagens")
 
-img = Image.open('stand.png')
+#Variavel para armazenar as imagens
+imagens =[]
 
-img_Tk = ImageTk.PhotoImage(img)
+#percorre a lista de arquivos
+for arquivo in arquivos:
+    #Abre a imagen
+    img= Image.open("imagens/"+ arquivo)
+    #adiciona a imagen na lista
+    imagens.append(ImageTk.PhotoImage(img))
 
-img_label = Label(root, image=img_Tk)
+#Exibe os arquivos em um Label
+#arquivos_label = Label(root, text=arquivos)
+#arquivos_label.pack()
+#img = Image.open('imagens/Egg.png')
+#img_Tk = ImageTk.PhotoImage(img)
+
+img_label = Label(root, image=imagens[0])
 
 img_label.pack()
 
