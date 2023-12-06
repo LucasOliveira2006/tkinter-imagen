@@ -3,15 +3,16 @@ from tkinter import messagebox
 from tkinter import filedialog
 from PIL import ImageTk, Image, ImageOps
 import os 
-
+#seleciona uma pasta
 def open_file():
     folder_path= filedialog.askdirectory()
     if folder_path:
-
+        #mostra uma caixa de mensagem com uma informação
         messagebox.showinfo(
             title='Abrindo diretório...',
             message=f'O arquivo selecionado foi: {folder_path}'
 )
+    #mostra uma caixa de mensagem caso ocorra algum erro
     else:
         messagebox.showerror(
             title='Erro ao abrir diretório',
@@ -21,8 +22,6 @@ def open_file():
 
 root = Tk()
 root.title("Imagens engraçadas e aleatorias :)")
-root.iconbitmap("scaramouch.ico")
-
 #Cria uma barra de menu
 menubar = Menu(root)
 
